@@ -1,0 +1,35 @@
+<header class="fixed-top d-flex justify-content-between align-items-center p-4">
+  <span (click)="toggle()">
+    <ng-container *ngIf="close then thenBlock else elseBlock"></ng-container>
+    <ng-template #thenBlock>
+      <ng-content select=".tr-open"></ng-content>
+    </ng-template>
+    <ng-template #elseBlock>
+      <ng-content select=".tr-close"></ng-content>
+    </ng-template>
+  </span>
+
+  <ng-content select=".tr-header"></ng-content>
+  <ng-content select=".tr-user"></ng-content>
+
+</header>
+
+<main class="d-flex">
+  <nav [ngClass]="{'close-nav': close}">
+    <ng-content select=".tr-nav"></ng-content>
+    <div class="group-btn">
+      <button class="btn">Créer un channel</button>
+    </div>
+  </nav>
+
+  <div class="shadow" *ngIf="!close" (click)="toggle()"></div>
+
+  <div class="content d-flex flex-column flex-grow-1">
+    <div class="post flex-grow-1">
+      <ng-content select=".tr-content"></ng-content>
+    </div>
+    <div class="form">
+      <ng-content select=".tr-footer"></ng-content>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,12 @@
+fieldset{
+  border: 1px var(--app-dark);
+  border-radius: 20px;
+  padding: 1em;
+}
+
+button{
+  color: var(--app-light);
+  background-color: var(--app-dark);
+  border: none;
+  border-radius: 20px;
+}

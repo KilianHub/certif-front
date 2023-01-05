@@ -1,0 +1,61 @@
+@import '../../../stylings/layout';
+
+header{
+  height: 4rem;
+  background: var(--app-dark);
+  color: var(--app-light);
+  text-align: center;
+}
+
+main{
+  padding-top: 4rem;
+  height: 100%;
+}
+
+nav {
+  width: 15rem;
+  position: fixed;
+  height: calc(100vh - 4rem);
+  background: var(--app-dark);
+  z-index:1;
+  transition: 500ms;
+  box-shadow: 5px 0px 15px -7px #000000;
+}
+
+.close-nav {
+  width: 0px;
+  overflow: hidden;
+}
+.shadow {
+  position: fixed;
+  width: 100%;
+  top: 3rem;
+  left: 0;
+  height: calc(100vh - 4rem);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+}
+
+.group-btn{
+  margin: 1.5rem;
+}
+.btn{
+  color: var(--app-light);
+  background-color: var(--app-red);
+  margin: auto;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.btn:focus{
+  color: var(--app-light);
+}
+
+@media(min-width: $md-breakpoint) {
+  nav {
+    position: inherit;
+  }
+  .shadow {
+    display: none;
+  }
+}
