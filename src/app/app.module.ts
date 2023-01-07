@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FooterModule } from './footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { FooterModule } from './footer/footer.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    FooterModule,
     HttpClientModule,
   ],
   providers: [
