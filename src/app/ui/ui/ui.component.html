@@ -30,8 +30,15 @@
     <div class="post flex-grow-1">
       <ng-content select=".tr-content"></ng-content>
     </div>
-    <div class="form">
-      <ng-content select=".tr-footer"></ng-content>
-    </div>
+    <footer>
+      <form action="">
+        <fieldset class="d-flex">
+          <textarea class="form-control" name="" id="" placeholder="Envoyer un message"></textarea>
+          <button class="btn" href="" type="submit" aria-label="Envoyer">
+            <ng-content select=".tr-send"></ng-content>
+          </button>
+        </fieldset>
+      </form>
+    </footer>
   </div>
 </main>
