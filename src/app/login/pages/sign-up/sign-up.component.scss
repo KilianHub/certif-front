@@ -1,0 +1,29 @@
+#authentication{
+  background: rgb(244,244,244);
+  background: linear-gradient(135deg, rgba(244,244,244,1) 50%, rgba(43,40,40,1) 50%);
+  height: 100vh;
+  width: 100%;
+}
+
+.jumbotron{
+  color: var(--app-light);
+  background-color: var(--app-dark);
+  border-radius: 20px;
+  width: 50%;
+  height: 50%;
+  box-shadow: 5px 0px 15px -7px #000000;
+  padding: 7em 2em;
+}
+
+input:focus{
+  box-shadow: none;
+}
+
+.form-group{
+  padding-bottom: 1.5em;
+}
+
+a{
+  color: var(--app-light);
+  margin-right: 3rem;
+}
