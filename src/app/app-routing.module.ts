@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, Router, RouterModule, Routes } from '@angular/router';
-import { SignInComponent } from './login/pages/sign-in/sign-in.component';
-import { SignUpComponent } from './login/pages/sign-up/sign-up.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: '', redirectTo: '/login/sign-in', pathMatch: 'full' },
   {
     path: 'channels',
     loadChildren: () =>
@@ -15,8 +14,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./messages/messages.module').then((m) => m.MessagesModule),
   },
-  { path: 'sign-up', component: SignUpComponent},
-  { path: 'sign-in', component: SignInComponent}
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
+  { path: 'chat', component: ChatComponent},
 ];
 
 @NgModule({
