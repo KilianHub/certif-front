@@ -1,1 +1,7 @@
-<p>page-list-messages works!</p>
+<app-template-full-width *ngIf="collection$ | async as collection" >
+  <article *ngFor="let message of collection">
+    <a>{{ message.user }}</a>
+    <p>{{ message.content }}</p>
+    <small>{{ message.createdAt }}</small>
+  </article>
+</app-template-full-width>
