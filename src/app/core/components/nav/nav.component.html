@@ -4,7 +4,7 @@
       <a class="nav-link" routerLink="" routerLinkActive="active">{{ channel.name }}</a>
       <div class="icon-group" *ngIf="channel.name != 'Général'">
         <app-icon-edit (click)="goToEdit(channel.id)"></app-icon-edit>
-        <app-icon-delete></app-icon-delete>
+        <app-icon-delete (click)="deleteChannel(channel.id)"></app-icon-delete>
       </div>
     </li>
   </ul>

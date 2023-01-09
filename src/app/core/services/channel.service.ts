@@ -21,10 +21,14 @@ export class ChannelService {
   }
 
   public update(channel: Channel): Observable<Channel>{
-    return this.httpClient.put<Channel>(`${this.urlApi}/channels/${channel.id}`, channel);
+    return this.httpClient.put<Channel>(`${this.urlApi}/channels/edit/${channel.id}`, channel);
   }
 
   public getItemById(id: number): Observable<Channel>{
     return this.httpClient.get<Channel>(`${this.urlApi}/channels/${id}`);
+  }
+
+  public delete(id: number): Observable<Channel>{
+    return this.httpClient.delete<Channel>(`${this.urlApi}/channels/delete/${id}`);
   }
 }

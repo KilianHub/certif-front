@@ -17,10 +17,10 @@ export class NavComponent {
   }
 
   public goToEdit(id: number){
-    this.router.navigate(['channel', 'edit', id]);
+    this.router.navigate(['channels', 'edit', id]);
   }
 
-  // public deleteOrder(id: number){
-  //   this.service.delete(id).subscribe();
-  // }
+  public deleteChannel(id: number){
+    this.service.delete(id).subscribe();
+  }
 }
