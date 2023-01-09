@@ -3,14 +3,15 @@ import { PreloadAllModules, Router, RouterModule, Routes } from '@angular/router
 import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/chat', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  // { path: 'chat', component: ChatComponent },
   {
     path: 'channels',
     loadChildren: () =>
       import('./channels/channels.module').then((m) => m.ChannelsModule),
   },
   {
-    path: 'messages',
+    path: 'channels/:id',
     loadChildren: () =>
       import('./messages/messages.module').then((m) => m.MessagesModule),
   },
@@ -19,7 +20,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
   },
-  { path: 'chat', component: ChatComponent},
 ];
 
 @NgModule({

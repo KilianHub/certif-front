@@ -17,10 +17,6 @@ export class MessageService {
   }
 
   public add(message: Message): Observable<Message>{
-    return this.httpClient.post<Message>(`${this.urlApi}/channels`, message);
-  }
-
-  public update(message: Message): Observable<Message>{
-    return this.httpClient.put<Message>(`${this.urlApi}/channels/${message.id}`, message);
+    return this.httpClient.post<Message>(`${this.urlApi}/channels/${message.channel.id}`, message);
   }
 }
