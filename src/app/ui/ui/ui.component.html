@@ -20,7 +20,7 @@
   <nav [ngClass]="{'close-nav': close}">
     <ng-content select=".tr-nav"></ng-content>
     <div class="group-btn">
-      <button class="btn">Créer un channel</button>
+      <a class="btn" routerLink="/channels/add">Créer un channel</a>
     </div>
   </nav>
 
