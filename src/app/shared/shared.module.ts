@@ -4,6 +4,8 @@ import { IconsModule } from '../icons/icons.module';
 import { GabaritsModule } from '../gabarits/gabarits.module';
 import { BtnComponent } from './components/btn/btn.component';
 import { RouterModule } from '@angular/router';
+import { PageListChannelsComponent } from '../channels/pages/page-list-channels/page-list-channels.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,6 +21,7 @@ import { RouterModule } from '@angular/router';
     GabaritsModule,
     IconsModule,
     BtnComponent,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

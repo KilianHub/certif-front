@@ -1,1 +1,13 @@
-<p>page-edit-channel works!</p>
+<app-template-container>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="item$ | async">
+    <div class="form-group">
+      <label for="name">Nom du canal</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="drescription">Description</label>
+      <input type="text" class="form-control" id="drescription" formControlName="description">
+    </div>
+    <app-btn type="submit">Modifier</app-btn>
+  </form>
+</app-template-container>

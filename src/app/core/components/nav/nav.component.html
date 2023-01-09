@@ -1,9 +1,13 @@
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link" routerLink="" routerLinkActive="active">#Général</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="" routerLinkActive="active">#Channel1</a>
-  </li>
-</ul>
+<div *ngIf="collection$ | async as collection">
+  <ul class="nav flex-column"  *ngFor="let channel of collection">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="" routerLinkActive="active">{{ channel.name }}</a>
+      <div class="icon-group" *ngIf="channel.name != 'Général'">
+        <app-icon-edit (click)="goToEdit(channel.id)"></app-icon-edit>
+        <app-icon-delete></app-icon-delete>
+      </div>
+    </li>
+  </ul>
+</div>
+
 
