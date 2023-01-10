@@ -21,7 +21,7 @@
   color: var(--app-light);
 }
 
-.nav-item:hover{
+.nav-item:hover, .nav-link:active{
   color: var(--app-light);
   background-color: var(--app-red);
 }
