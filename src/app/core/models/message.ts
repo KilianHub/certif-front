@@ -5,8 +5,8 @@ import { User } from "./user";
 export class Message implements MessageI {
   id!: number;
   content!: string;
-  createdAt = new Date;
-  updatedAt = new Date;
+  createdAt: Date = new Date;
+  updatedAt: Date = new Date;
   user!: User;
   channel!: Channel;
 

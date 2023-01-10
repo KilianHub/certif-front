@@ -1,17 +1,17 @@
 <main id="authentication" class="d-flex justify-content-center align-items-center">
   <div class="jumbotron">
-    <form (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="username">Identifiant*</label>
-        <input type="text" class="form-control" id="username" formControlName="control" required>
+        <input type="text" class="form-control" id="username" formControlName="username" required>
       </div>
       <div class="form-group">
         <label for="email">E-mail*</label>
-        <input type="email" class="form-control" id="email" formControlName="control" required>
+        <input type="email" class="form-control" id="email" formControlName="email" required>
       </div>
       <div class="form-group">
         <label for="password">Mot de passe</label>
-        <input type="text" class="form-control" id="password" formControlName="control">
+        <input type="password" class="form-control" id="password" formControlName="password">
       </div>
       <a routerLink="/login/sign-in">Se connecter plutôt ?</a>
       <app-btn type="submit" label="S'inscrire"></app-btn>

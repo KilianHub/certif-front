@@ -10,23 +10,22 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
-  public router!: Router;
-  // public user: User;
-  // public form: FormGroup;
+  public user: User;
+  public form: FormGroup;
 
-  // constructor(private formBuilder: FormBuilder, private service: UserService, private router: Router){
-  //   this.user = new User();
+  constructor(private formBuilder: FormBuilder, private service: UserService, private router: Router){
+    this.user = new User();
 
-  //   this.form = this.formBuilder.group({
-  //     id: [this.user.id],
-  //     username: [this.user.username],
-  //     email: [this.user.email],
-  //     password: [this.user.password],
-  //   })
-  // }
+    this.form = this.formBuilder.group({
+      id: [this.user.id],
+      username: [this.user.username],
+      email: [this.user.email],
+      password: [this.user.password],
+    })
+  }
 
   public onSubmit(){
-    // this.service.add(this.form.value);
-    this.router.navigate(['/chat']);
+    this.service.add(this.form.value);
+    this.router.navigate(['/']);
   }
 }

@@ -16,8 +16,12 @@ export class MessageService {
     this.collection$ = this.httpClient.get<Message[]>(`${this.urlApi}/channels`);
   }
 
-  public add(message: Message): Observable<Message>{
-    return this.httpClient.post<Message>(`${this.urlApi}/channels/${message.channel.id}`, message);
+  public add(message: Message, chanId: number): Observable<Message>{
+    return this.httpClient.post<Message>(`${this.urlApi}/channels/${chanId}`, message);
+  }
+
+  public getByChannel(id: number): Observable<Message[]>{
+    return this.httpClient.get<Message[]>(`${this.urlApi}/channels/${id}/messages`);
   }
 
   public delete(id: number): Observable<Message>{

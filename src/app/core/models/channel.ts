@@ -6,8 +6,8 @@ export class Channel implements ChannelI{
   id!: number;
   description!: string;
   name!: string;
-  createdAt = new Date;
-  updatedAt = new Date;
+  createdAt: Date = new Date;
+  updatedAt: Date = new Date;
   messages!: Message[];
   users!: User[];
 
