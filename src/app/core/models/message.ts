@@ -7,8 +7,8 @@ export class Message implements MessageI {
   content!: string;
   createdAt: Date = new Date;
   updatedAt: Date = new Date;
-  user!: User;
-  channel!: Channel;
+  userId: number = 1;
+  channelId: number = 8;
 
   constructor(obj?: Partial<Message>){
     if(obj){

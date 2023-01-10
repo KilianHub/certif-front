@@ -23,8 +23,10 @@ export class MessageService {
     });
   }
 
-  public add(message: Message, chanId: number): Observable<Message>{
-    return this.httpClient.post<Message>(`${this.urlApi}/channels/${chanId}`, message);
+  public add(message: Message): Observable<Message>{
+    return this.httpClient
+      .post<Message>(`${this.urlApi}/channels/`, message)
+      .pipe(tap(() => this.refreshCollection()));
   }
 
   public getByChannel(id: number): Observable<Message[]>{

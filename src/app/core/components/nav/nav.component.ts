@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Channel } from '../../models/channel';
+import { Message } from '../../models/message';
 import { ChannelService } from '../../services/channel.service';
 
 @Component({

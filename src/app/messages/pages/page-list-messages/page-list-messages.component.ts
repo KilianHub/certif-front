@@ -11,10 +11,10 @@ import { MessageService } from 'src/app/core/services/message.service';
   styleUrls: ['./page-list-messages.component.scss']
 })
 export class PageListMessagesComponent {
-  public collection$: BehaviorSubject<Message[]>;
+  public messages$: BehaviorSubject<Message[]>;
   public message: Message;
   public form: FormGroup;
-  public id: number;
+  public channelId!: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,19 +22,19 @@ export class PageListMessagesComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute){
 
-    this.id = this.activatedRoute.snapshot.params['id'];
-    this.collection$ = this.service.collection$;
-    console.log(this.collection$);
+    this.messages$ = this.service.collection$;
+    console.log(this.messages$);
 
     this.message = new Message();
     this.form = this.formBuilder.group({
+      channelId: [this.message.channelId],
       id: [this.message.id],
       content: [this.message.content],
     })
   }
 
   public onSubmit(){
-    this.service.add(this.form.value, this.id).subscribe(()=> {
+    this.service.add(this.form.value).subscribe(()=> {
       this.router.navigate(['/']);
     });
   }

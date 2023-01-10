@@ -1,9 +1,11 @@
-<app-template-full-width *ngIf="collection$ | async as collection" >
-  <article *ngFor="let message of collection" class="d-flex flex-column">
-    <a>{{ message.user }}</a>
-    <p>{{ message.content }}</p>
-    <small>{{ message.createdAt | date : "dd MMMM yyyy" }}</small>
-    <app-icon-delete (click)="deleteMessage(message.id)"></app-icon-delete>
+<app-template-full-width>
+  <article *ngFor="let message of messages$ | async"  class="d-flex flex-column">
+    <div>
+      <p>{{ message.userId }}</p>
+      <p>{{ message.content }}</p>
+      <small>{{ message.createdAt }}</small>
+      <app-icon-delete (click)="deleteMessage(message.id)"></app-icon-delete>
+    </div>
   </article>
 </app-template-full-width>
 
