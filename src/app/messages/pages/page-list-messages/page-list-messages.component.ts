@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Message } from 'src/app/core/models/message';
 import { MessageService } from 'src/app/core/services/message.service';
 
@@ -11,7 +11,7 @@ import { MessageService } from 'src/app/core/services/message.service';
   styleUrls: ['./page-list-messages.component.scss']
 })
 export class PageListMessagesComponent {
-  public collection$: Observable<Message[]>;
+  public collection$: BehaviorSubject<Message[]>;
   public message: Message;
   public form: FormGroup;
   public id: number;
@@ -23,7 +23,7 @@ export class PageListMessagesComponent {
     private activatedRoute: ActivatedRoute){
 
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.collection$ = this.service.getByChannel(this.id);
+    this.collection$ = this.service.collection$;
     console.log(this.collection$);
 
     this.message = new Message();

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Channel } from '../../models/channel';
 import { ChannelService } from '../../services/channel.service';
 
@@ -10,7 +10,7 @@ import { ChannelService } from '../../services/channel.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  public collection$: Observable<Channel[]>;
+  public collection$: BehaviorSubject<Channel[]>;
 
   constructor(private service: ChannelService, private router: Router){
     this.collection$ = this.service.collection$;
@@ -22,5 +22,6 @@ export class NavComponent {
 
   public deleteChannel(id: number){
     this.service.delete(id).subscribe();
+    console.log("Channel removed!")
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Environment } from 'src/environment/environment';
 import { Channel } from '../models/channel';
 
@@ -9,11 +9,18 @@ import { Channel } from '../models/channel';
 })
 export class ChannelService {
   private urlApi: string;
-  public collection$: Observable<Channel[]>;
+  public collection$: BehaviorSubject<Channel[]>;
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = Environment.urlApi;
-    this.collection$ = this.httpClient.get<Channel[]>(`${this.urlApi}/channels`);
+    this.collection$ = new BehaviorSubject<Channel[]>([]);
+    this.refreshCollection();
+  }
+
+  public refreshCollection(){
+    this.httpClient.get<Channel[]>(`${this.urlApi}/channels`).subscribe((data) => {
+      this.collection$.next(data);
+    });
   }
 
   public add(channel: Channel): Observable<Channel>{

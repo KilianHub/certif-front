@@ -1,7 +1,9 @@
+@import '../../../../stylings/layout';
+
 #authentication{
   background: rgb(244,244,244);
   background: linear-gradient(135deg, rgba(244,244,244,1) 50%, rgba(43,40,40,1) 50%);
-  height: 100vh;
+  height: calc(100vh - 4rem);
   width: 100%;
 }
 
@@ -9,10 +11,10 @@
   color: var(--app-light);
   background-color: var(--app-dark);
   border-radius: 20px;
-  width: 50%;
+  width: 70%;
   height: 50%;
   box-shadow: 5px 0px 15px -7px #000000;
-  padding: 7em 2em;
+  padding: 3em 1em;
 }
 
 input:focus{
@@ -26,4 +28,17 @@ input:focus{
 a{
   color: var(--app-light);
   margin-right: 3rem;
+}
+
+@media(min-width: $md-breakpoint) {
+  .jumbotron{
+    padding: 4em 2em;
+    width: 50%;
+  }
+}
+
+@media(min-width: $xl-breakpoint){
+  .jumbotron{
+    padding: 5em 10em;
+  }
 }

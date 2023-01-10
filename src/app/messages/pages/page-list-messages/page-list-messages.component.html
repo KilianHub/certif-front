@@ -2,7 +2,7 @@
   <article *ngFor="let message of collection" class="d-flex flex-column">
     <a>{{ message.user }}</a>
     <p>{{ message.content }}</p>
-    <small>{{ message.createdAt | date : 'short' }}</small>
+    <small>{{ message.createdAt | date : "dd MMMM yyyy" }}</small>
     <app-icon-delete (click)="deleteMessage(message.id)"></app-icon-delete>
   </article>
 </app-template-full-width>

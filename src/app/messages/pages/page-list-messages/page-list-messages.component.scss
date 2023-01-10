@@ -2,6 +2,12 @@ article{
   padding: 2em;
 }
 
+form{
+  position: absolute;
+  bottom: 1em;
+  width: 80vw;
+}
+
 fieldset{
   border: 1px solid var(--app-dark);
   border-radius: 20px;
