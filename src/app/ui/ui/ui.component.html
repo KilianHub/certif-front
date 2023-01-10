@@ -20,7 +20,7 @@
   <nav [ngClass]="{'close-nav': close}">
     <ng-content select=".tr-nav"></ng-content>
     <div class="group-btn">
-      <button class="btn">Créer un channel</button>
+      <a class="btn" routerLink="/channels/add">Créer un channel</a>
     </div>
   </nav>
 
@@ -30,15 +30,13 @@
     <div class="post flex-grow-1">
       <ng-content select=".tr-content"></ng-content>
     </div>
-    <footer>
-      <form action="">
-        <fieldset class="d-flex">
-          <textarea class="form-control" name="" id="" placeholder="Envoyer un message"></textarea>
-          <button class="send" href="" type="submit" aria-label="Envoyer">
-            <ng-content select=".tr-send"></ng-content>
-          </button>
-        </fieldset>
-      </form>
-    </footer>
+    <form action="">
+      <fieldset class="d-flex">
+        <textarea class="form-control" name="" id="" placeholder="Envoyer un message"></textarea>
+        <button class="send" href="" type="submit" aria-label="Envoyer">
+          <ng-content select=".tr-send"></ng-content>
+        </button>
+      </fieldset>
+    </form>
   </div>
 </main>

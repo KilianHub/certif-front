@@ -13,14 +13,14 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = Environment.urlApi;
-    this.collection$ = this.httpClient.get<User[]>(`${this.urlApi}/channels`);
+    this.collection$ = this.httpClient.get<User[]>(`${this.urlApi}/users`);
   }
 
   public add(user: User): Observable<User>{
-    return this.httpClient.post<User>(`${this.urlApi}/channels`, user);
+    return this.httpClient.post<User>(`${this.urlApi}/users`, user);
   }
 
   public update(user: User): Observable<User>{
-    return this.httpClient.put<User>(`${this.urlApi}/channels/${user.id}`, user);
+    return this.httpClient.put<User>(`${this.urlApi}/users/${user.id}`, user);
   }
 }

@@ -2,10 +2,26 @@
   position:relative;
 }
 
-.nav-link {
+.nav-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1em;
   color: var(--app-light);
 }
-.nav-link:hover, .nav-link.active{
+
+.icon-group{
+  gap: 5%;
+}
+.icon-group:hover{
+  cursor: pointer;
+}
+
+.nav-link{
+  color: var(--app-light);
+}
+
+.nav-item:hover, .nav-link:active{
   color: var(--app-light);
   background-color: var(--app-red);
 }

@@ -1,5 +1,5 @@
 <app-template-full-width *ngIf="collection$ | async as collection" >
-  <article *ngFor="let message of collection">
+  <article *ngFor="let message of collection" class="d-flex flex-column">
     <a>{{ message.user }}</a>
     <p>{{ message.content }}</p>
     <small>{{ message.createdAt }}</small>

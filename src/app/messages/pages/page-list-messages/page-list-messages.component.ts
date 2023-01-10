@@ -14,5 +14,6 @@ export class PageListMessagesComponent {
 
   constructor(private service: MessageService, private router: Router){
     this.collection$ = this.service.collection$;
+    console.log(this.collection$);
   }
 }
