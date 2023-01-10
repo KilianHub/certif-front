@@ -3,6 +3,17 @@
     <a>{{ message.user }}</a>
     <p>{{ message.content }}</p>
     <small>{{ message.createdAt }}</small>
-    <app-icon-delete></app-icon-delete>
+    <app-icon-delete (click)="deleteMessage(message.id)"></app-icon-delete>
   </article>
+</app-template-full-width>
+
+<app-template-full-width>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset class="d-flex">
+      <textarea class="form-control" placeholder="Envoyer un message" formControlName="content" (keyup.enter)="onSubmit()" required></textarea>
+      <button class="send" type="submit" aria-label="Envoyer">
+        <app-icon-send></app-icon-send>
+      </button>
+    </fieldset>
+  </form>
 </app-template-full-width>

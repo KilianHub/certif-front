@@ -19,4 +19,8 @@ export class MessageService {
   public add(message: Message): Observable<Message>{
     return this.httpClient.post<Message>(`${this.urlApi}/channels/${message.channel.id}`, message);
   }
+
+  public delete(id: number): Observable<Message>{
+    return this.httpClient.delete<Message>(`${this.urlApi}/messages/delete/${id}`);
+  }
 }

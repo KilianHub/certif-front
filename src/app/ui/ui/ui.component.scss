@@ -56,33 +56,6 @@ nav {
   border-color: var(--app-light);
 }
 
-fieldset{
-  border: 1px solid var(--app-dark);
-  border-radius: 20px;
-  margin: 1em;
-  padding: 1em;
-}
-
-textarea{
-  border:none;
-}
-textarea:focus{
-  box-shadow: none;
-}
-
-.send{
-  color: var(--app-light);
-  background-color: var(--app-dark);
-  border: none;
-  border-radius: 10px;
-  padding: 1em 0.8em;
-}
-.send:focus{
-  color: var(--app-dark);
-  background-color: var(--app-light);
-  border: 1px solid var(--app-dark);
-}
-
 @media(min-width: $md-breakpoint) {
   nav {
     position: inherit;

@@ -2,12 +2,12 @@
   <div class="jumbotron">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="username">Identifiant</label>
-        <input type="text" class="form-control" id="username" formControlName="control">
+        <label for="username">Identifiant*</label>
+        <input type="text" class="form-control" id="username" formControlName="control" required>
       </div>
       <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" class="form-control" id="email" formControlName="control">
+        <label for="email">E-mail*</label>
+        <input type="email" class="form-control" id="email" formControlName="control" required>
       </div>
       <div class="form-group">
         <label for="password">Mot de passe</label>

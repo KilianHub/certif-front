@@ -30,7 +30,7 @@ export class PageEditChannelComponent {
 
   public onSubmit(){
     this.service.update(this.form.value).subscribe(() => {
-      this.router.navigate(['chat']);
+      this.router.navigate(['/']);
     });
   }
 }

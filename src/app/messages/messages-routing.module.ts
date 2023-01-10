@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageAddMessageComponent } from './pages/page-add-message/page-add-message.component';
 import { PageListMessagesComponent } from './pages/page-list-messages/page-list-messages.component';
 
 const routes: Routes = [
   { path: '', component: PageListMessagesComponent },
-  { path: 'add', component: PageAddMessageComponent },
 ];
 
 @NgModule({
