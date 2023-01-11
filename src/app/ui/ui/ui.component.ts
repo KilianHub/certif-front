@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PopupService } from '@ng-bootstrap/ng-bootstrap/util/popup';
 
 @Component({
   selector: 'app-ui',
@@ -20,7 +19,6 @@ export class UiComponent {
   }
 
   public logout(){
-    console.log("clicked");
     this.showPopup = !this.showPopup;
   }
 

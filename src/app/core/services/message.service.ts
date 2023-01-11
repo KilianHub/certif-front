@@ -14,19 +14,11 @@ export class MessageService {
   constructor(private httpClient: HttpClient) {
     this.urlApi = Environment.urlApi;
     this.collection$ = new BehaviorSubject<Message[]>([]);
-    // this.refreshCollection();
   }
-
-  // public refreshCollection(){
-  //   this.httpClient.get<Message[]>(`${this.urlApi}/messages`).subscribe((data) => {
-  //     this.collection$.next(data);
-  //   });
-  // }
 
   public add(message: Message): Observable<Message>{
     return this.httpClient
       .post<Message>(`${this.urlApi}/messages`, message);
-      // .pipe(tap(() => this.refreshCollection()));
   }
 
   public getByChannel(): Observable<Message[]>{
@@ -36,6 +28,5 @@ export class MessageService {
   public delete(id: number): Observable<Message>{
     return this.httpClient
       .delete<Message>(`${this.urlApi}/messages/delete/${id}`);
-      // .pipe(tap(() => this.refreshCollection()));
   }
 }
