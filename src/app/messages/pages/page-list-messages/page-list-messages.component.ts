@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Message } from 'src/app/core/models/message';
 import { MessageService } from 'src/app/core/services/message.service';
 
@@ -24,8 +24,8 @@ export class PageListMessagesComponent {
     private activatedRoute: ActivatedRoute){
 
     this.activatedRoute.params.subscribe((params) => {
-      const id = params['id'];
-      this.messages$ = this.service.getByChannel();
+      this.channelId = params['id'];
+      this.messages$ = this.service.getByChannel(this.channelId);
       console.log(this.messages$);
     })
 
@@ -38,9 +38,12 @@ export class PageListMessagesComponent {
   }
 
   public onSubmit(){
-    this.service.add(this.form.value).subscribe(()=> {
-      this.router.navigate([`/channels/${this.channelId}`]);
-    });
+    if(this.message.content != null){
+      this.service.add(this.form.value).subscribe(()=> {
+        this.router.navigate([`/channels/${this.channelId}`]);
+        console.log("Message sent");
+      });
+    }
   }
 
 

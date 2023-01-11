@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Environment } from 'src/environment/environment';
 import { Message } from '../models/message';
 
@@ -21,7 +21,7 @@ export class MessageService {
       .post<Message>(`${this.urlApi}/messages`, message);
   }
 
-  public getByChannel(): Observable<Message[]>{
+  public getByChannel(id: number): Observable<Message[]>{
     return this.httpClient.get<Message[]>(`${this.urlApi}/messages`);
   }
 

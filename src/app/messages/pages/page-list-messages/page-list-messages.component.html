@@ -1,5 +1,5 @@
-<div id="messagesList">
-  <article *ngFor="let message of messages$ | async"  class="d-flex flex-column">
+<div id="messagesList" *ngIf="messages$ | async as messages">
+  <article *ngFor="let message of messages"  class="d-flex flex-column">
     <p class="redFont">{{ message.userId }}</p>
     <p>{{ message.content }}</p>
     <small>{{ message.createdAt }}</small>
