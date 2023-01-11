@@ -16,6 +16,23 @@ main{
   height: 90vh;
 }
 
+.user{
+  position: relative;
+}
+
+.popup{
+  cursor: pointer;
+  background-color: var(--app-dark);
+  color: var(--app-red);
+  padding: 0 0.5em;
+  border-radius: 10px;
+  position: absolute;
+  right: 1em;
+  bottom: -2em;
+  box-sizing: border-box;
+  filter: drop-shadow(1px 1px 4px #000000);
+}
+
 nav {
   width: 15rem;
   position: fixed;

@@ -10,9 +10,13 @@
   </span>
 
   <ng-content select=".tr-header"></ng-content>
-  <span>
+
+  <span class="user" (click)="logout()">
     <ng-content select=".tr-user"></ng-content>
   </span>
+  <div *ngIf="showPopup" class="popup" routerLink="/sign-up">
+    <p>logout</p>
+  </div>
 
 </header>
 
