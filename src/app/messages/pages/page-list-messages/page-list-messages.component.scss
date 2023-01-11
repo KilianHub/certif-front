@@ -1,5 +1,25 @@
+#messagesList{
+  overflow: auto;
+  height: 75vh;
+}
+
 article{
   padding: 2em;
+  border-bottom: 1px solid var(--app-dark);
+}
+
+.redFont{
+  font-weight: bold;
+  color: var(--app-red);
+}
+
+span:hover{
+  cursor: pointer;
+}
+
+#messageForm{
+  width: 100%;
+  background-color: white;
 }
 
 form{
@@ -9,6 +29,7 @@ form{
 }
 
 fieldset{
+  background-color: white;
   border: 1px solid var(--app-dark);
   border-radius: 20px;
   margin: 1em;

@@ -14,7 +14,7 @@ export class PageListMessagesComponent {
   public messages$!: Observable<Message[]>;
   public message: Message;
   public form: FormGroup;
-  public channelId!: number;
+  public channelId: number = 8;
 
 
   constructor(
@@ -39,7 +39,7 @@ export class PageListMessagesComponent {
 
   public onSubmit(){
     this.service.add(this.form.value).subscribe(()=> {
-      this.router.navigate(['/']);
+      this.router.navigate([`/channels/${this.channelId}`]);
     });
   }
 

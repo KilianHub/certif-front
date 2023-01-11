@@ -12,6 +12,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class SignUpComponent {
   public user: User;
   public form: FormGroup;
+  urlImg: any = "/assets/images/SQUADRA.png";
 
   constructor(private formBuilder: FormBuilder, private service: UserService, private router: Router){
     this.user = new User();
@@ -26,6 +27,7 @@ export class SignUpComponent {
 
   public onSubmit(){
     this.service.add(this.form.value);
-    this.router.navigate(['/']);
+    this.router.navigate(['/channels/8']);
+    console.log("User added!")
   }
 }

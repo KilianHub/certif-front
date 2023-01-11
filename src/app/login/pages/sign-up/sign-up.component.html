@@ -1,4 +1,5 @@
-<main id="authentication" class="d-flex justify-content-center align-items-center">
+<main id="authentication" class="d-flex flex-column justify-content-center align-items-center">
+  <img [src]="urlImg" alt="Logo de l'application Squadra">
   <div class="jumbotron">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -13,7 +14,6 @@
         <label for="password">Mot de passe</label>
         <input type="password" class="form-control" id="password" formControlName="password">
       </div>
-      <a routerLink="/login/sign-in">Se connecter plutôt ?</a>
       <app-btn type="submit" label="S'inscrire"></app-btn>
     </form>
   </div>
