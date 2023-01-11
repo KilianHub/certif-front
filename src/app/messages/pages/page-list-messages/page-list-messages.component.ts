@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Message } from 'src/app/core/models/message';
 import { MessageService } from 'src/app/core/services/message.service';
 
@@ -11,10 +11,11 @@ import { MessageService } from 'src/app/core/services/message.service';
   styleUrls: ['./page-list-messages.component.scss']
 })
 export class PageListMessagesComponent {
-  public messages$: BehaviorSubject<Message[]>;
+  public messages$!: Observable<Message[]>;
   public message: Message;
   public form: FormGroup;
   public channelId!: number;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,8 +23,11 @@ export class PageListMessagesComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute){
 
-    this.messages$ = this.service.collection$;
-    console.log(this.messages$);
+    this.activatedRoute.params.subscribe((params) => {
+      const id = params['id'];
+      this.messages$ = this.service.getByChannel();
+      console.log(this.messages$);
+    })
 
     this.message = new Message();
     this.form = this.formBuilder.group({

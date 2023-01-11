@@ -14,28 +14,28 @@ export class MessageService {
   constructor(private httpClient: HttpClient) {
     this.urlApi = Environment.urlApi;
     this.collection$ = new BehaviorSubject<Message[]>([]);
-    this.refreshCollection();
+    // this.refreshCollection();
   }
 
-  public refreshCollection(){
-    this.httpClient.get<Message[]>(`${this.urlApi}/channels`).subscribe((data) => {
-      this.collection$.next(data);
-    });
-  }
+  // public refreshCollection(){
+  //   this.httpClient.get<Message[]>(`${this.urlApi}/messages`).subscribe((data) => {
+  //     this.collection$.next(data);
+  //   });
+  // }
 
   public add(message: Message): Observable<Message>{
     return this.httpClient
-      .post<Message>(`${this.urlApi}/channels/`, message)
-      .pipe(tap(() => this.refreshCollection()));
+      .post<Message>(`${this.urlApi}/messages`, message);
+      // .pipe(tap(() => this.refreshCollection()));
   }
 
-  public getByChannel(id: number): Observable<Message[]>{
-    return this.httpClient.get<Message[]>(`${this.urlApi}/channels/${id}/messages`);
+  public getByChannel(): Observable<Message[]>{
+    return this.httpClient.get<Message[]>(`${this.urlApi}/messages`);
   }
 
   public delete(id: number): Observable<Message>{
     return this.httpClient
-      .delete<Message>(`${this.urlApi}/messages/delete/${id}`)
-      .pipe(tap(() => this.refreshCollection()));
+      .delete<Message>(`${this.urlApi}/messages/delete/${id}`);
+      // .pipe(tap(() => this.refreshCollection()));
   }
 }

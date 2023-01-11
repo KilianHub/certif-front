@@ -1,15 +1,13 @@
-<app-template-full-width>
+<div>
   <article *ngFor="let message of messages$ | async"  class="d-flex flex-column">
-    <div>
-      <p>{{ message.userId }}</p>
-      <p>{{ message.content }}</p>
-      <small>{{ message.createdAt }}</small>
-      <app-icon-delete (click)="deleteMessage(message.id)"></app-icon-delete>
-    </div>
+    <p>{{ message.userId }}</p>
+    <p>{{ message.content }}</p>
+    <small>{{ message.createdAt }}</small>
+    <app-icon-delete (click)="deleteMessage(message.id)"></app-icon-delete>
   </article>
-</app-template-full-width>
+</div>
 
-<app-template-full-width>
+<div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <fieldset class="d-flex">
       <textarea class="form-control" placeholder="Envoyer un message" formControlName="content" (keyup.enter)="onSubmit()" required></textarea>
@@ -18,4 +16,4 @@
       </button>
     </fieldset>
   </form>
-</app-template-full-width>
+</div>

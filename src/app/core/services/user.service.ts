@@ -20,7 +20,4 @@ export class UserService {
     return this.httpClient.post<User>(`${this.urlApi}/users`, user);
   }
 
-  public update(user: User): Observable<User>{
-    return this.httpClient.put<User>(`${this.urlApi}/users/${user.id}`, user);
-  }
 }
