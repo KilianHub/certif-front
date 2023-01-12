@@ -38,7 +38,7 @@ export class PageListMessagesComponent {
   }
 
   public onSubmit(){
-    if(this.message.content != null){
+    if(this.message.content != ""){
       this.service.add(this.form.value).subscribe(()=> {
         this.router.navigate([`/channels/${this.channelId}`]);
         console.log("Message sent");
